@@ -37,23 +37,23 @@ def on_closing():
 #epochs = 1
 
 # Répertoire contenant le modèle
-model_dir = "YOUR_PATH"
+model_dir = "C:/Users/cleme/OneDrive - student.helmo.be/AI"
 model_path = os.path.join(model_dir, "chat_vs_chien_model.h5")
 
 # Préparation des données d'entraînement
-train_datagen = ImageDataGenerator(rescale=1./255)
-val_datagen = ImageDataGenerator(rescale=1./255)
-train_generator = train_datagen.flow_from_directory(
-    directory=r"YOUR_PATH\train",
-    target_size=(224,224),
-    batch_size=batch_size,
-    class_mode="categorical")
+#train_datagen = ImageDataGenerator(rescale=1./255)
+#val_datagen = ImageDataGenerator(rescale=1./255)
+#train_generator = train_datagen.flow_from_directory(
+#    directory=r"YOUR_PATH\train",
+#    target_size=(224,224),
+#    batch_size=batch_size,
+#    class_mode="categorical")
 
-val_generator = val_datagen.flow_from_directory(
-    directory=r"YOUR_PATH",
-    target_size=(224,224),
-    batch_size=batch_size,
-    class_mode="categorical")
+#val_generator = val_datagen.flow_from_directory(
+#    directory=r"YOUR_PATH",
+#    target_size=(224,224),
+#    batch_size=batch_size,
+#    class_mode="categorical")
 
 
 #def train_model():
@@ -138,8 +138,8 @@ if __name__ == '__main__':
     app.geometry("720x480")
     nope_button = tk.Button(app, text="Classifier une image", command=classify_image)
     nope_button.pack()
-    train_model()
+    #train_model()
     label = tk.Label(app, text=status)
     label.pack()
     app.mainloop()
-    app.protocol("WM_DELETE_WINDOW", on_closing(), app.quit)
+    app.protocol("WM_DELETE_WINDOW", command=on_closing())
