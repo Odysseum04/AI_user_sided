@@ -11,7 +11,7 @@ Une IA pour reconnaitre si une photo montre un chat ou un chien
 
 # Lien du modèle pré-entrainé:
 
- - https://studenthelmobe-my.sharepoint.com/:u:/g/personal/c_raes_student_helmo_be/EYhGaWYufaNKp-iwQiII3KIBwRnCDIUbwMBVeP2lxgwYsQ?e=tnuK7u 
+ - https://studenthelmobe-my.sharepoint.com/:u:/g/personal/c_raes_student_helmo_be/ETPXXgqeoiZEgmxvCe0aphkBtjm3fZyazwZC9H7xILGbMQ?e=Fa2sCX
  - Il faut placer ce fichier dans le répertoire d'origine de l'IA (que vous avez choisi) !!
 
 # Autres
