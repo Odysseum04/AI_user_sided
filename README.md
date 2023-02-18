@@ -5,8 +5,10 @@ Une IA pour reconnaitre si une photo montre un chat ou un chien
 
 # Comment démarrer:
   1. Choisir un répertoire de base pour les fichier.
-  2. Remplacer dans "ai.py" les termes "YOUR_PATH" par le chemin du répertoire choisi.
+  2. Remplacer dans "ai.py" les termes "YOUR_PATH" par le chemin du répertoire choisi (ctrl+f).
   3. Placez le modèle pré-entrainé dans le même repertoire que le fichier ".py"
+  4. Ouvrir le fichier .py dans un terminal ou à l'aide d'un logiciel tel que Visual Studio Code.
+  5. Exécuter le code.
   
 
 # Lien du modèle pré-entrainé:
