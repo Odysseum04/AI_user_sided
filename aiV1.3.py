@@ -18,55 +18,55 @@ def on_closing():
     model.save(os.path.join(model_dir, 'chat_vs_chien_model.h5'))
 
 
-#if __name__ == '__main__':
-    strup = tk.Tk()
-    strup.title("Entrainement de l'IA...")
-    strup.geometry("720x100")
-    label = tk.Label(strup, text="Entrainement de l'IA à chaque lancement... NE PAS FERMER L'APPLICATION !!! (Temps moyen: 2-3 minutes)")
-    label.pack()
+#if __name__ == '__main__':#
+#    strup = tk.Tk()
+#    strup.title("Entrainement de l'IA...")
+#    strup.geometry("720x100")
+#    label = tk.Label(strup, text="Entrainement de l'IA à chaque lancement... NE PAS FERMER L'APPLICATION !!! (Temps moyen: 2-3 minutes)")
+#    label.pack()
+#
+#    classify_button = tk.Button(text="Lancement", command=strup.quit)
+#    classify_button.pack()
+#
+#    strup.protocol("WM_DELETE_WINDOW", strup.quit)
+#    strup.mainloop()
 
-    classify_button = tk.Button(text="Lancement", command=strup.quit)
-    classify_button.pack()
-
-    strup.protocol("WM_DELETE_WINDOW", strup.quit)
-    strup.mainloop()
-
-# Paramétrage de l'apprentissage
-batch_size = 32
-num_classes = 2
-epochs = 1
+## Paramétrage de l'apprentissage
+#batch_size = 32
+#num_classes = 2
+#epochs = 1
 
 # Répertoire contenant le modèle
-model_dir = "C:/Users/cleme/OneDrive - student.helmo.be/AI"
+model_dir = "YOUR_PATH"
 model_path = os.path.join(model_dir, "chat_vs_chien_model.h5")
 
 # Préparation des données d'entraînement
 train_datagen = ImageDataGenerator(rescale=1./255)
 val_datagen = ImageDataGenerator(rescale=1./255)
 train_generator = train_datagen.flow_from_directory(
-    directory=r"C:\Users\cleme\OneDrive - student.helmo.be\AI\train",
+    directory=r"YOUR_PATH\train",
     target_size=(224,224),
     batch_size=batch_size,
     class_mode="categorical")
 
 val_generator = val_datagen.flow_from_directory(
-    directory=r"C:\Users\cleme\OneDrive - student.helmo.be\AI\validation",
+    directory=r"YOUR_PATH",
     target_size=(224,224),
     batch_size=batch_size,
     class_mode="categorical")
 
 
-def train_model():
+#def train_model():
     # Entraînement du modèle
-    model.fit(
-        train_generator, # générateur d'images pour l'entraînement
-        steps_per_epoch=len(train_generator), # nombre d'itérations par époque (un époque = une passe complète sur l'ensemble de données)
-        epochs=epochs, # nombre d'époques configurable ci-dessus...
-        validation_data=val_generator, # générateur d'images pour la validation
-        validation_steps=len(val_generator)) # nombre d'itérations pour la validation
-    status = "Coeur créé, vous pouvez clore la fenêtre et relancer le programme afin de mettre à jour les informations."
-    print(status)
-    pass
+#    model.fit(
+#        train_generator, # générateur d'images pour l'entraînement
+#        steps_per_epoch=len(train_generator), # nombre d'itérations par époque (un époque = une passe complète sur l'ensemble de données)
+#        epochs=epochs, # nombre d'époques configurable ci-dessus...
+#        validation_data=val_generator, # générateur d'images pour la validation
+#        validation_steps=len(val_generator)) # nombre d'itérations pour la validation
+#    status = "Coeur créé, vous pouvez clore la fenêtre et relancer le programme afin de mettre à jour les informations."
+#    print(status)
+#    pass
 
 # Vérification de la présence d'un modèle existant
 
@@ -77,31 +77,31 @@ if os.path.exists(model_path):
     model = keras.models.load_model(model_path)
 else:
     # Définition du modèle
-    status = "Le coeur de l'IA n'a pas été trouvé, création d'un nouveau coeur... NE PAS FERMER LA PAGE !!! (Temps moyen: 2-3 minutes)"
+    #status = "Le coeur de l'IA n'a pas été trouvé, création d'un nouveau coeur... NE PAS FERMER LA PAGE !!! (Temps moyen: 2-3 minutes)"
+    status = "Le coeur de l'IA n'a pas été trouvé, merci de contacter l'auteur du code si vous souhaitez créer votre propre modèle entrainé"
     print(status)
-    model = Sequential([
-        Conv2D(32, (3,3), padding='same', activation='relu', input_shape=(224,224,3)),
-        MaxPooling2D(pool_size=(2,2)),
-        Conv2D(64, (3,3), padding='same', activation='relu'),
-        MaxPooling2D(pool_size=(2,2)),
-        Flatten(),
-        Dense(128, activation='relu'),
-        Dropout(0.5),
-        Dense(num_classes, activation='softmax')
-    ])
-
-    # Compilation du modèle
-    model.compile(optimizer=keras.optimizers.Adam(), loss=keras.losses.categorical_crossentropy, metrics=['accuracy'])
-    train_model()
-    model.save(os.path.join(model_dir, 'chat_vs_chien_model.h5'))
+    #model = Sequential([
+    #    Conv2D(32, (3,3), padding='same', activation='relu', input_shape=(224,224,3)),
+    #    MaxPooling2D(pool_size=(2,2)),
+    #    Conv2D(64, (3,3), padding='same', activation='relu'),
+    #    MaxPooling2D(pool_size=(2,2)),
+    #    Flatten(),
+    #    Dense(128, activation='relu'),
+    #    Dropout(0.5),
+    #    Dense(num_classes, activation='softmax')
+    #])
+    ## Compilation du modèle
+    #model.compile(optimizer=keras.optimizers.Adam(), loss=keras.losses.categorical_crossentropy, metrics=['accuracy'])
+    #train_model()
+    #model.save(os.path.join(model_dir, 'chat_vs_chien_model.h5'))
 
 # Préparation des données de test
-test_datagen = ImageDataGenerator(rescale=1./255)
-test_generator = test_datagen.flow_from_directory(
-    directory=r"C:\Users\cleme\OneDrive - student.helmo.be\AI\test",
-    target_size=(224,224),
-    batch_size=batch_size,
-    class_mode="binary")
+#test_datagen = ImageDataGenerator(rescale=1./255)
+#test_generator = test_datagen.flow_from_directory(
+#    directory=r"YOUR_PATH\test",
+#    target_size=(224,224),
+#    batch_size=batch_size,
+#    class_mode="binary")
 
 
 def test_model(image_path):
